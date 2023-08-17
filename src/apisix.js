@@ -131,7 +131,7 @@ async function listSSL(sni) {
   const resp = await axios.request({
     method: 'GET',
     headers: { 'X-API-KEY': config.apisix_token },
-    url: `${config.apisix_host}/apisix/admin/ssl`
+    url: `${config.apisix_host}/apisix/admin/ssls`
   })
 
   const { data } = resp
@@ -176,7 +176,7 @@ async function applySSL(domain, sslInfo) {
     await axios.request({
       method: 'PUT',
       headers: { 'X-API-KEY': config.apisix_token },
-      url: `${config.apisix_host}/apisix/admin/ssl/${id}`,
+      url: `${config.apisix_host}/apisix/admin/ssls/${id}`,
       data: sslInfo
     })
   }
